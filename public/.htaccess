@@ -1,0 +1,64 @@
+# ── Transcom — Apache Security Headers ────────────────────────────
+
+# Force HTTPS (uncomment after SSL is active on your hosting)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── Security Headers ──────────────────────────────────────────────
+<IfModule mod_headers.c>
+    # Prevent your site being embedded in iframes on other domains (clickjacking)
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Stop browsers guessing file types (MIME sniffing attacks)
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Control how much referrer info is sent
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Force HTTPS for 1 year once enabled
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+    # Permissions: disable mic, camera, geolocation (not needed on this site)
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+    # Content Security Policy
+    # self       = your own domain
+    # unsafe-inline = needed for Tailwind + Framer Motion inline styles
+    # google.com = Maps iframe
+    # fonts.googleapis / gstatic = if you ever add Google Fonts
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; frame-src https://www.google.com https://maps.google.com; connect-src 'self'; font-src 'self' data:; object-src 'none'; base-uri 'self';"
+
+    # Remove server info header
+    Header always unset X-Powered-By
+    Header always unset Server
+</IfModule>
+
+# ── Protect sensitive files ───────────────────────────────────────
+<FilesMatch "\.(env|log|sql|bak|sh|git)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# ── Disable directory listing ─────────────────────────────────────
+Options -Indexes
+
+# ── React SPA routing — serve index.html for all routes ──────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^index\.html$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.html [L]
+</IfModule>
+
+# ── Cache static assets ───────────────────────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/json "access plus 0 seconds"
+</IfModule>
