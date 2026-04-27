@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Default title & description (overridden per-page by react-helmet-async) -->
+    <title>Transcom — Power Transmission Tools Manufacturer | Kolkata, India</title>
+    <meta name="description" content="Transcom is a leading Kolkata-based manufacturer of power transmission tools, stringing equipment, hydraulic compressors, winches, and OPGW accessories. Serving EPC contractors Pan-India. Export ready." />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0B1C3D" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Transcom" />
+    <meta property="og:image" content="/images/web/about-us-header.webp" />
+
+    <!-- Preload hero banner (LCP image) -->
+    <link rel="preload" as="image" href="/images/banner/b1.webp" />
+
+    <!-- GitHub Pages SPA routing fix -->
+    <script>
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
