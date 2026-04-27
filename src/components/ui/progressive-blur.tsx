@@ -17,7 +17,6 @@ export function ProgressiveBlur({
   blurLayers = 8,
   className,
   blurIntensity = 0.25,
-  ...props
 }: ProgressiveBlurProps) {
   const layers = Math.max(blurLayers, 2)
   const segmentSize = 1 / (blurLayers + 1)

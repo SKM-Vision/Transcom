@@ -127,7 +127,7 @@ export default function ProductsSection() {
 
         {/* RIGHT — auto-cycling showcase (looks like video) */}
         <div className="lg:w-[64%] relative overflow-hidden bg-gray-50 self-stretch">
-          <AnimatePresence mode="crossfade">
+          <AnimatePresence mode="sync">
             <motion.img
               key={showcaseImages[activeIdx]}
               src={showcaseImages[activeIdx]}

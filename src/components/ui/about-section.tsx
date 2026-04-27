@@ -1,5 +1,6 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import type { Variants } from "framer-motion"
 import { ShieldCheck, Factory, Globe, Users } from "lucide-react"
 
 const pillars = [
@@ -16,9 +17,9 @@ const stats = [
   { value: "500+", label: "Projects" },
 ]
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 36 },
-  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.55, ease: "easeOut" } }),
+  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.55, ease: "easeOut" as const } }),
 }
 
 export default function AboutSection() {
