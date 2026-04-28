@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import SchemaOrg from '@/components/ui/schema-org'
@@ -26,6 +27,16 @@ const mvv = [
 ]
 
 export default function About() {
+  const [hoveredSeg, setHoveredSeg] = useState<string | null>(null)
+
+  const segStyle = (id: string) => ({
+    cursor: 'pointer',
+    transformOrigin: '250px 250px',
+    transition: 'transform 0.35s cubic-bezier(0.34,1.56,0.64,1), filter 0.3s ease',
+    transform: hoveredSeg === id ? 'scale(1.08)' : 'scale(1)',
+    filter: hoveredSeg === id ? 'brightness(1.18) drop-shadow(0 4px 16px rgba(0,0,0,0.22))' : 'none',
+  })
+
   return (
     <div className="bg-white">
       <Helmet>
@@ -156,19 +167,19 @@ export default function About() {
               <svg viewBox="0 0 500 500" className="h-[420px] w-[420px]" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="250" cy="250" r="228" fill="none" stroke="#E2E8F0" strokeWidth="2"/>
                 <circle cx="250" cy="250" r="222" fill="none" stroke="#F1F5F9" strokeWidth="4"/>
-                <g style={{ cursor:'pointer', transformOrigin:'250px 250px', transition:'transform 0.35s cubic-bezier(0.34,1.56,0.64,1)' }} className="wheel-seg">
+                <g style={segStyle('mission')} onMouseEnter={() => setHoveredSeg('mission')} onMouseLeave={() => setHoveredSeg(null)}>
                   <path d="M 40,250 A 210,210 0 0,1 250,40 L 250,165 A 85,85 0 0,0 165,250 Z" fill="#D94040" stroke="white" strokeWidth="6" strokeLinejoin="round"/>
                   <text x="146" y="153" textAnchor="middle" fill="white" fontSize="14" fontWeight="800" letterSpacing="2.5" fontFamily="Inter,Segoe UI,sans-serif">MISSION</text>
                 </g>
-                <g style={{ cursor:'pointer', transformOrigin:'250px 250px', transition:'transform 0.35s cubic-bezier(0.34,1.56,0.64,1)' }}>
+                <g style={segStyle('vision')} onMouseEnter={() => setHoveredSeg('vision')} onMouseLeave={() => setHoveredSeg(null)}>
                   <path d="M 250,40 A 210,210 0 0,1 460,250 L 335,250 A 85,85 0 0,0 250,165 Z" fill="#2BAC8C" stroke="white" strokeWidth="6" strokeLinejoin="round"/>
                   <text x="354" y="153" textAnchor="middle" fill="white" fontSize="14" fontWeight="800" letterSpacing="2.5" fontFamily="Inter,Segoe UI,sans-serif">VISION</text>
                 </g>
-                <g style={{ cursor:'pointer', transformOrigin:'250px 250px', transition:'transform 0.35s cubic-bezier(0.34,1.56,0.64,1)' }}>
+                <g style={segStyle('goals')} onMouseEnter={() => setHoveredSeg('goals')} onMouseLeave={() => setHoveredSeg(null)}>
                   <path d="M 460,250 A 210,210 0 0,1 250,460 L 250,335 A 85,85 0 0,0 335,250 Z" fill="#E8700A" stroke="white" strokeWidth="6" strokeLinejoin="round"/>
                   <text x="354" y="359" textAnchor="middle" fill="white" fontSize="14" fontWeight="800" letterSpacing="2.5" fontFamily="Inter,Segoe UI,sans-serif">GOALS</text>
                 </g>
-                <g style={{ cursor:'pointer', transformOrigin:'250px 250px', transition:'transform 0.35s cubic-bezier(0.34,1.56,0.64,1)' }}>
+                <g style={segStyle('values')} onMouseEnter={() => setHoveredSeg('values')} onMouseLeave={() => setHoveredSeg(null)}>
                   <path d="M 250,460 A 210,210 0 0,1 40,250 L 165,250 A 85,85 0 0,0 250,335 Z" fill="#3A8F4E" stroke="white" strokeWidth="6" strokeLinejoin="round"/>
                   <text x="146" y="359" textAnchor="middle" fill="white" fontSize="14" fontWeight="800" letterSpacing="2.5" fontFamily="Inter,Segoe UI,sans-serif">VALUES</text>
                 </g>
