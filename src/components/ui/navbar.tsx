@@ -162,13 +162,22 @@ export default function Navbar() {
                 <div key={link.label}>
                   {link.dropdown ? (
                     <>
-                      <button
-                        onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                        className="flex w-full items-center justify-between border-b border-white/10 py-4 text-left text-lg font-semibold text-white"
-                      >
-                        {link.label}
-                        <ChevronDown className={`w-4 h-4 text-white/50 transition-transform duration-200 ${mobileProductsOpen ? "rotate-180" : ""}`} />
-                      </button>
+                      <div className="flex items-center justify-between border-b border-white/10 py-4">
+                        <a
+                          href={link.href}
+                          onClick={() => setMobileOpen(false)}
+                          className={`text-lg font-semibold transition-colors ${isActive(link.href) ? 'text-blue-400' : 'text-white'}`}
+                        >
+                          {link.label}
+                        </a>
+                        <button
+                          onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                          className="p-1 text-white/50"
+                          aria-label="Toggle products menu"
+                        >
+                          <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${mobileProductsOpen ? "rotate-180" : ""}`} />
+                        </button>
+                      </div>
                       <AnimatePresence>
                         {mobileProductsOpen && (
                           <motion.div

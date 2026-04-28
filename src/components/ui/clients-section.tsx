@@ -35,8 +35,8 @@ export default function ClientsSection() {
           </p>
         </motion.div>
 
-        {/* CSS marquee — no JS animation, zero error risk */}
-        <div className="relative overflow-hidden h-28">
+        {/* CSS marquee */}
+        <div className="relative overflow-hidden h-28" style={{ contain: 'layout style' }}>
           <div className="flex w-max animate-marquee items-center h-full gap-16">
             {[...clients, ...clients].map((client, i) => (
               <div key={i} className="flex items-center justify-center h-16 px-4 flex-shrink-0">
