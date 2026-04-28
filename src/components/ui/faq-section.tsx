@@ -52,7 +52,7 @@ export default function FaqSection() {
             <p className="text-xs font-bold uppercase tracking-widest text-blue-700 mb-3">
               Got Questions?
             </p>
-            <h2 className="text-4xl font-bold leading-tight text-[#0B1C3D]">
+            <h2 className="text-3xl font-bold leading-tight text-[#0B1C3D] md:text-4xl">
               Frequently<br />
               <span className="text-blue-700">Asked Questions</span>
             </h2>

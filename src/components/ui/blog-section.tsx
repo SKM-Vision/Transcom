@@ -50,7 +50,7 @@ export default function BlogSection() {
             <p className="text-sm font-semibold uppercase tracking-widest text-blue-700 mb-2">
               Insights & Updates
             </p>
-            <h2 className="text-4xl font-bold text-[#0B1C3D]">From Our Blog</h2>
+            <h2 className="text-3xl font-bold text-[#0B1C3D] md:text-4xl">From Our Blog</h2>
             <div className="mt-3 h-1 w-14 rounded-full bg-blue-700" />
           </motion.div>
           <a

@@ -34,7 +34,7 @@ export default function WhyUsSection() {
               <span className="text-blue-700 text-xs font-semibold tracking-widest uppercase">Why Choose Us</span>
             </div>
 
-            <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1C3D] leading-tight mb-6">
+            <h2 className="text-3xl font-bold text-[#0B1C3D] leading-tight mb-6 md:text-4xl lg:text-5xl">
               Our name defines<br />
               <span className="text-blue-700">our commitment</span>
             </h2>
@@ -46,7 +46,7 @@ export default function WhyUsSection() {
             </p>
 
             {/* Stats row */}
-            <div className="flex gap-8 mb-10">
+            <div className="flex flex-wrap gap-6 mb-10">
               <div>
                 <p className="text-3xl font-bold text-[#0B1C3D]">122<span className="text-blue-600">+</span></p>
                 <p className="text-gray-500 text-sm mt-0.5">Products</p>

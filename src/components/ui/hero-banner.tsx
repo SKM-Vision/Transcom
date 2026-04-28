@@ -51,7 +51,7 @@ export default function HeroBanner() {
   const next = () => setCurrent(p => (p + 1) % slides.length)
 
   return (
-    <section className="relative flex h-screen w-full items-end justify-center overflow-hidden">
+    <section className="relative flex h-[60vh] w-full items-end justify-center overflow-hidden md:h-screen">
 
       {/* Background with crossfade */}
       <AnimatePresence mode="sync">
@@ -85,8 +85,8 @@ export default function HeroBanner() {
       </button>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl px-6 pb-20 md:px-8">
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between text-left">
+      <div className="relative z-10 w-full max-w-7xl px-4 pb-8 sm:px-6 md:pb-20 lg:px-8">
+        <div className="flex flex-col gap-4 md:gap-8 lg:flex-row lg:items-end lg:justify-between text-left">
 
           {/* Left — headline */}
           <AnimatePresence mode="wait">
@@ -96,13 +96,13 @@ export default function HeroBanner() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.45 }}
-              className="max-w-3xl space-y-5"
+              className="max-w-3xl space-y-3 md:space-y-5"
             >
-              <h1 className="text-5xl font-black leading-[1.08] tracking-tight text-white md:text-6xl lg:text-7xl whitespace-pre-line">
+              <h1 className="text-3xl font-black leading-[1.08] tracking-tight text-white sm:text-4xl md:text-6xl lg:text-7xl whitespace-pre-line">
                 {slides[current].heading}
               </h1>
 
-              <p className="max-w-2xl text-lg font-light leading-relaxed text-white/90">
+              <p className="max-w-2xl text-sm font-light leading-relaxed text-white/90 md:text-lg hidden sm:block">
                 {slides[current].sub}
               </p>
 
@@ -113,7 +113,7 @@ export default function HeroBanner() {
                     key={i}
                     onClick={() => setCurrent(i)}
                     className={`rounded-full transition-all duration-300 ${
-                      i === current ? "h-2 w-8 bg-white" : "h-2 w-2 bg-white/35 hover:bg-white/60"
+                      i === current ? "h-2 w-6 bg-white md:w-8" : "h-2 w-2 bg-white/35 hover:bg-white/60"
                     }`}
                   />
                 ))}
@@ -122,37 +122,36 @@ export default function HeroBanner() {
           </AnimatePresence>
 
           {/* Right — avatars + CTAs */}
-          <div className="mt-auto space-y-6">
+          <div className="mt-auto space-y-3 md:space-y-6">
 
-            {/* Client avatars */}
-            <div className="flex items-center gap-3">
+            {/* Client avatars — hide on smallest screens */}
+            <div className="hidden sm:flex items-center gap-3">
               <div className="flex -space-x-3">
                 {clients.map((c) => (
-                  <Avatar key={c.fallback} className="size-12 border-2 border-white/80 bg-[#0B1C3D]">
+                  <Avatar key={c.fallback} className="size-9 border-2 border-white/80 bg-[#0B1C3D] md:size-12">
                     <AvatarImage src={c.src} alt={c.fallback} className="object-contain p-1.5" />
                     <AvatarFallback>{c.fallback}</AvatarFallback>
                   </Avatar>
                 ))}
               </div>
               <div className="flex flex-col text-sm">
-                <span className="text-base font-bold text-white sm:text-lg">500+ Projects</span>
-                <span className="text-white/65">Supplied across India</span>
+                <span className="text-sm font-bold text-white md:text-lg">500+ Projects</span>
+                <span className="text-xs text-white/65">Supplied across India</span>
               </div>
             </div>
 
-            {/* CTAs — 21st.dev pill-arrow style, white like reference */}
-            <div className="flex w-fit flex-wrap gap-4">
-
+            {/* CTAs */}
+            <div className="flex w-fit flex-wrap gap-2 md:gap-4">
               <Button
                 variant="transparent"
                 className="group flex cursor-pointer items-center justify-center gap-0 rounded-full px-0 py-0"
               >
-                <span className="rounded-full bg-white px-6 py-3 text-sm font-bold text-black duration-500 ease-in-out group-hover:bg-[#F47B20] group-hover:text-white">
+                <span className="rounded-full bg-white px-4 py-2.5 text-xs font-bold text-black duration-500 ease-in-out group-hover:bg-[#F47B20] group-hover:text-white md:px-6 md:py-3 md:text-sm">
                   Request a Quote
                 </span>
-                <div className="relative flex h-fit items-center overflow-hidden rounded-full bg-white p-4 text-black duration-500 ease-in-out group-hover:bg-[#F47B20] group-hover:text-white">
-                  <ArrowUpRight className="absolute h-5 w-5 -translate-x-1/2 transition-all duration-500 ease-in-out group-hover:translate-x-10" />
-                  <ArrowUpRight className="absolute h-5 w-5 -translate-x-10 transition-all duration-500 ease-in-out group-hover:-translate-x-1/2" />
+                <div className="relative flex h-fit items-center overflow-hidden rounded-full bg-white p-3 text-black duration-500 ease-in-out group-hover:bg-[#F47B20] group-hover:text-white md:p-4">
+                  <ArrowUpRight className="absolute h-4 w-4 -translate-x-1/2 transition-all duration-500 ease-in-out group-hover:translate-x-10 md:h-5 md:w-5" />
+                  <ArrowUpRight className="absolute h-4 w-4 -translate-x-10 transition-all duration-500 ease-in-out group-hover:-translate-x-1/2 md:h-5 md:w-5" />
                 </div>
               </Button>
 
@@ -160,15 +159,14 @@ export default function HeroBanner() {
                 variant="transparent"
                 className="group flex cursor-pointer items-center justify-center gap-0 rounded-full px-0 py-0"
               >
-                <span className="rounded-full border border-white/50 px-6 py-3 text-sm font-semibold text-white duration-500 ease-in-out group-hover:border-white group-hover:bg-white/10">
+                <span className="rounded-full border border-white/50 px-4 py-2.5 text-xs font-semibold text-white duration-500 ease-in-out group-hover:border-white group-hover:bg-white/10 md:px-6 md:py-3 md:text-sm">
                   View Products
                 </span>
-                <div className="relative flex h-fit items-center overflow-hidden rounded-full border border-white/50 p-4 text-white duration-500 ease-in-out group-hover:border-white group-hover:bg-white/10">
-                  <ArrowUpRight className="absolute h-5 w-5 -translate-x-1/2 transition-all duration-500 ease-in-out group-hover:translate-x-10" />
-                  <ArrowUpRight className="absolute h-5 w-5 -translate-x-10 transition-all duration-500 ease-in-out group-hover:-translate-x-1/2" />
+                <div className="relative flex h-fit items-center overflow-hidden rounded-full border border-white/50 p-3 text-white duration-500 ease-in-out group-hover:border-white group-hover:bg-white/10 md:p-4">
+                  <ArrowUpRight className="absolute h-4 w-4 -translate-x-1/2 transition-all duration-500 ease-in-out group-hover:translate-x-10 md:h-5 md:w-5" />
+                  <ArrowUpRight className="absolute h-4 w-4 -translate-x-10 transition-all duration-500 ease-in-out group-hover:-translate-x-1/2 md:h-5 md:w-5" />
                 </div>
               </Button>
-
             </div>
           </div>
         </div>

@@ -62,7 +62,7 @@ export default function ProductsSection() {
             <p className="text-sm font-semibold tracking-widest text-blue-700 uppercase mb-2">
               What We Supply
             </p>
-            <h2 className="text-4xl font-bold text-[#0B1C3D] leading-tight">
+            <h2 className="text-3xl font-bold text-[#0B1C3D] leading-tight md:text-4xl">
               Our Product Range
             </h2>
             <div className="mt-3 h-1 w-16 bg-blue-700 rounded-full" />
@@ -132,7 +132,7 @@ export default function ProductsSection() {
               key={showcaseImages[activeIdx]}
               src={showcaseImages[activeIdx]}
               alt="Transcom manufacturing"
-              className="absolute inset-0 w-full h-full object-contain p-8"
+              className="absolute inset-0 w-full h-full object-contain p-4 md:p-8"
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 1.02 }}
@@ -149,25 +149,25 @@ export default function ProductsSection() {
           </div>
 
           {/* Bottom info bar */}
-          <div className="absolute bottom-0 left-0 right-0 px-6 py-4 bg-[#0B1C3D]/90 backdrop-blur-sm flex items-center justify-between">
-            <div className="flex gap-6">
+          <div className="absolute bottom-0 left-0 right-0 px-3 py-3 bg-[#0B1C3D]/90 backdrop-blur-sm flex items-center justify-between md:px-6 md:py-4">
+            <div className="flex gap-3 md:gap-6">
               <div>
-                <p className="text-white font-bold text-lg leading-none">122+</p>
-                <p className="text-blue-300 text-xs mt-0.5">Products</p>
+                <p className="text-white font-bold text-sm leading-none md:text-lg">122+</p>
+                <p className="text-blue-300 text-[10px] mt-0.5 md:text-xs">Products</p>
               </div>
               <div className="w-px bg-white/20" />
               <div>
-                <p className="text-white font-bold text-lg leading-none">48+</p>
-                <p className="text-blue-300 text-xs mt-0.5">Categories</p>
+                <p className="text-white font-bold text-sm leading-none md:text-lg">48+</p>
+                <p className="text-blue-300 text-[10px] mt-0.5 md:text-xs">Categories</p>
               </div>
-              <div className="w-px bg-white/20" />
-              <div>
-                <p className="text-white font-bold text-lg leading-none">Since 2016</p>
-                <p className="text-blue-300 text-xs mt-0.5">Established</p>
+              <div className="w-px bg-white/20 hidden sm:block" />
+              <div className="hidden sm:block">
+                <p className="text-white font-bold text-sm leading-none md:text-lg">Since 2016</p>
+                <p className="text-blue-300 text-[10px] mt-0.5 md:text-xs">Established</p>
               </div>
             </div>
-            <a href="/products" className="flex items-center gap-2 text-sm font-semibold text-white bg-blue-700 hover:bg-blue-600 transition-colors px-4 py-2 rounded-full">
-              View All <ArrowRight size={14} />
+            <a href="/products" className="flex items-center gap-1.5 text-xs font-semibold text-white bg-blue-700 hover:bg-blue-600 transition-colors px-3 py-2 rounded-full md:gap-2 md:px-4 md:text-sm">
+              View All <ArrowRight size={12} />
             </a>
           </div>
 

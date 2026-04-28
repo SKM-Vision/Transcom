@@ -7,7 +7,6 @@ export default function CtaSection() {
       className="relative overflow-hidden"
       style={{
         backgroundImage: "url('/images/web/cta-background.webp')",
-        backgroundAttachment: 'fixed',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

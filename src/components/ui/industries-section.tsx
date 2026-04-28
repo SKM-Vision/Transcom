@@ -39,7 +39,7 @@ export default function IndustriesSection() {
             <p className="text-blue-400 text-sm font-semibold tracking-widest uppercase mb-2">
               Sectors We Power
             </p>
-            <h2 className="text-4xl font-bold text-white leading-tight">
+            <h2 className="text-3xl font-bold text-white leading-tight md:text-4xl">
               Industries We Serve
             </h2>
             <div className="mt-3 h-1 w-16 bg-blue-500 rounded-full" />
@@ -49,8 +49,30 @@ export default function IndustriesSection() {
           </p>
         </div>
 
-        {/* Accordion */}
-        <div className="flex flex-col md:flex-row gap-3 h-[480px]">
+        {/* Mobile — stacked cards */}
+        <div className="flex flex-col gap-4 md:hidden">
+          {industries.map((ind, i) => (
+            <div key={ind.id} className="relative rounded-2xl overflow-hidden h-56">
+              <img src={ind.image} alt={ind.title} className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C3D]/95 via-[#0B1C3D]/50 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <p className="text-blue-400 text-xs font-bold tracking-widest uppercase mb-1">0{i + 1}</p>
+                <h3 className="text-white text-lg font-bold mb-1">{ind.title}</h3>
+                <p className="text-blue-200 text-xs mb-3">{ind.subtitle}</p>
+                <ul className="flex flex-wrap gap-x-3 gap-y-1">
+                  {ind.points.slice(0, 2).map(pt => (
+                    <li key={pt} className="flex items-center gap-1.5 text-gray-300 text-xs">
+                      <span className="w-1 h-1 rounded-full bg-blue-400 flex-shrink-0" />{pt}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop — accordion */}
+        <div className="hidden md:flex gap-3 h-[480px]">
           {industries.map((ind, i) => (
             <motion.div
               key={ind.id}
@@ -60,22 +82,17 @@ export default function IndustriesSection() {
               onMouseEnter={() => setActiveIdx(i)}
               onClick={() => setActiveIdx(i)}
             >
-              {/* Background image */}
               <img
                 src={ind.image}
                 alt={ind.title}
                 className="absolute inset-0 w-full h-full object-cover scale-105 transition-transform duration-700"
                 style={{ transform: i === activeIdx ? 'scale(1)' : 'scale(1.08)' }}
               />
-
-              {/* Overlay */}
               <div className={`absolute inset-0 transition-all duration-500 ${
                 i === activeIdx
                   ? 'bg-gradient-to-t from-[#0B1C3D]/95 via-[#0B1C3D]/40 to-transparent'
                   : 'bg-[#0B1C3D]/70'
               }`} />
-
-              {/* Collapsed state — vertical title */}
               <motion.div
                 className="absolute inset-0 flex items-end justify-center pb-8"
                 animate={{ opacity: i === activeIdx ? 0 : 1 }}
@@ -86,45 +103,27 @@ export default function IndustriesSection() {
                   {ind.title}
                 </span>
               </motion.div>
-
-              {/* Expanded state — full content */}
               <motion.div
                 className="absolute bottom-0 left-0 right-0 p-7"
                 animate={{ opacity: i === activeIdx ? 1 : 0, y: i === activeIdx ? 0 : 16 }}
                 transition={{ duration: 0.4, delay: i === activeIdx ? 0.2 : 0 }}
               >
-                {/* Number */}
-                <p className="text-blue-400 text-xs font-bold tracking-widest uppercase mb-2">
-                  0{i + 1}
-                </p>
+                <p className="text-blue-400 text-xs font-bold tracking-widest uppercase mb-2">0{i + 1}</p>
                 <h3 className="text-white text-2xl font-bold mb-1">{ind.title}</h3>
                 <p className="text-blue-200 text-sm mb-5">{ind.subtitle}</p>
-
-                {/* Bullet points */}
                 <ul className="space-y-2 mb-6">
                   {ind.points.map(pt => (
                     <li key={pt} className="flex items-center gap-2 text-gray-300 text-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
-                      {pt}
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />{pt}
                     </li>
                   ))}
                 </ul>
-
-                <a
-                  href="/industries"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/30 hover:border-blue-400 hover:text-blue-300 rounded-full px-5 py-2 transition-colors group"
-                >
+                <a href="/industries" className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/30 hover:border-blue-400 hover:text-blue-300 rounded-full px-5 py-2 transition-colors group">
                   Explore <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
                 </a>
               </motion.div>
-
-              {/* Active indicator bar */}
               {i === activeIdx && (
-                <motion.div
-                  className="absolute top-0 left-0 w-1 h-full bg-blue-500 rounded-l-2xl"
-                  layoutId="activeBar"
-                  transition={{ duration: 0.5 }}
-                />
+                <motion.div className="absolute top-0 left-0 w-1 h-full bg-blue-500 rounded-l-2xl" layoutId="activeBar" transition={{ duration: 0.5 }} />
               )}
             </motion.div>
           ))}

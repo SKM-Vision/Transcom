@@ -26,7 +26,7 @@ export default function ClientsSection() {
           <p className="text-blue-700 text-sm font-semibold tracking-widest uppercase mb-3">
             Trusted By
           </p>
-          <h2 className="text-4xl font-bold text-[#0B1C3D]">
+          <h2 className="text-3xl font-bold text-[#0B1C3D] md:text-4xl">
             Our Valued Clients
           </h2>
           <div className="mt-4 h-1 w-16 bg-blue-700 rounded-full mx-auto" />
