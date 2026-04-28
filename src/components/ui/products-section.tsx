@@ -5,34 +5,34 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
 const categories = [
-  { name: 'Pulleys & Stringing Blocks', image: '/images/products/pulleys.webp' },
-  { name: 'Winches', image: '/images/products/winches.webp' },
-  { name: 'Come Along Clamps', image: '/images/products/come-along-clamps.webp' },
-  { name: 'Hydraulic Compressors', image: '/images/products/hydraulic-compressor.webp' },
-  { name: 'Chain & Pulley Blocks', image: '/images/products/chain-pulley-blocks.webp' },
-  { name: 'Safety Items', image: '/images/products/safety-items.webp' },
-  { name: 'Hardware Fittings', image: '/images/products/hardware-fitting.webp' },
-  { name: 'Cable Rollers', image: '/images/products/cable-roller.webp' },
-  { name: 'Conductor Accessories', image: '/images/products/conductor-accessories.webp' },
-  { name: 'Aerial Rollers', image: '/images/products/aerial-roller.webp' },
-  { name: 'Transmission Tools', image: '/images/products/transmission-tools.webp' },
-  { name: 'Other Equipment', image: '/images/products/others.webp' },
+  { name: 'Pulleys & Stringing Blocks', image: '/images/products/pulleys/aluminium-stringing-blocks.webp' },
+  { name: 'Winches', image: '/images/products/winches/industrial-power-winches.webp' },
+  { name: 'Come Along Clamps', image: '/images/products/come-along-clamps/bolted-type-come-along-clamps.webp' },
+  { name: 'Hydraulic Compressors', image: '/images/products/hydraulic-compressor/motorized-hydraulic-compressor-500x500.webp' },
+  { name: 'Chain & Pulley Blocks', image: '/images/products/chain-pulley-blocks/four-sheave.webp' },
+  { name: 'Safety Items', image: '/images/products/safety-items/Helmet.webp' },
+  { name: 'Hardware Fittings', image: '/images/products/hardware-fitting/suspension-hardware-fittings.webp' },
+  { name: 'Cable Rollers', image: '/images/products/cable-roller/bridge-cable-roller.webp' },
+  { name: 'Conductor Accessories', image: '/images/products/conductor-accessories/bundle-spacer-for-twin-conductors.webp' },
+  { name: 'Aerial Rollers', image: '/images/products/double-aerial-roller/seven-sheave-aerial-roller.webp' },
+  { name: 'Transmission Tools', image: '/images/products/transmission-tools/conductors-head-board.webp' },
+  { name: 'Other Equipment', image: '/images/products/others/Hydraulic-cable-cutter.webp' },
 ]
 
 // Manufacturing / shop-floor images that cycle on the right
 const showcaseImages = [
-  '/images/products/pulleys.webp',
-  '/images/products/winches.webp',
-  '/images/products/come-along-clamps.webp',
-  '/images/products/hydraulic-compressor.webp',
-  '/images/products/chain-pulley-blocks.webp',
-  '/images/products/safety-items.webp',
-  '/images/products/hardware-fitting.webp',
-  '/images/products/cable-roller.webp',
-  '/images/products/conductor-accessories.webp',
-  '/images/products/aerial-roller.webp',
-  '/images/products/transmission-tools.webp',
-  '/images/products/others.webp',
+  '/images/products/pulleys/aluminium-stringing-blocks.webp',
+  '/images/products/winches/industrial-power-winches.webp',
+  '/images/products/come-along-clamps/bolted-type-come-along-clamps.webp',
+  '/images/products/hydraulic-compressor/motorized-hydraulic-compressor-500x500.webp',
+  '/images/products/chain-pulley-blocks/four-sheave.webp',
+  '/images/products/safety-items/Helmet.webp',
+  '/images/products/hardware-fitting/suspension-hardware-fittings.webp',
+  '/images/products/cable-roller/bridge-cable-roller.webp',
+  '/images/products/conductor-accessories/bundle-spacer-for-twin-conductors.webp',
+  '/images/products/double-aerial-roller/seven-sheave-aerial-roller.webp',
+  '/images/products/transmission-tools/conductors-head-board.webp',
+  '/images/products/others/Hydraulic-cable-cutter.webp',
 ]
 
 const SLIDE_INTERVAL = 2800 // ms — fast enough to feel like a video
