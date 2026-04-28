@@ -66,9 +66,9 @@ export default function HeroBanner() {
         />
       </AnimatePresence>
 
-      {/* Overlays — same as reference image */}
-      <div className="absolute inset-0 bg-black/45" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+      {/* Overlays */}
+      <div className="absolute inset-0 bg-black/20 md:bg-black/45" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent md:from-black/70" />
 
       {/* Prev / Next arrows — exactly like reference */}
       <button
