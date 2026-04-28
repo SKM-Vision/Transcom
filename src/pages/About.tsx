@@ -114,16 +114,17 @@ export default function About() {
             {certs.map((cert, i) => (
               <motion.div
                 key={cert.title}
-                className="flex flex-col items-center text-center"
+                className="group flex flex-col items-center text-center cursor-default"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
+                whileHover={{ y: -8, scale: 1.06 }}
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-slate-600 shadow-sm ring-1 ring-slate-200 sm:h-20 sm:w-20">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-slate-600 shadow-sm ring-1 ring-slate-200 sm:h-20 sm:w-20 transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:ring-blue-600 group-hover:shadow-lg group-hover:shadow-blue-200">
                   {cert.icon}
                 </div>
-                <p className="mt-3 text-xs font-bold text-slate-900 sm:text-sm">{cert.title}</p>
+                <p className="mt-3 text-xs font-bold text-slate-900 transition-colors duration-300 group-hover:text-blue-700 sm:text-sm">{cert.title}</p>
                 <p className="mt-0.5 text-[10px] text-slate-500 sm:text-xs">{cert.sub}</p>
               </motion.div>
             ))}
